@@ -6,17 +6,17 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write  # 需要写入权限来推送代码
+  contents: write
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4  # 最新版已支持 Node.js 24
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v4  # 最新版已支持 Node.js 24
         with:
           node-version: "20"
           cache: "npm"
@@ -28,13 +28,10 @@ jobs:
         run: npm run build
 
       - name: Deploy to yvonne1ru.github.io
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4  # 👈 从 v3 升级到 v4
         with:
-          # 使用你配置的 DEPLOY_TOKEN
           personal_token: ${{ secrets.DEPLOY_TOKEN }}
-          # 关键：推送到外部仓库
           external_repository: Yvonne1ru/yvonne1ru.github.io
           publish_dir: ./out
           publish_branch: main
-          # 强制覆盖，避免历史冲突
           force_orphan: true
