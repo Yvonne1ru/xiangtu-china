@@ -6,21 +6,28 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "deploy": "next build && gh-pages -d out -r https://github.com/Yvonne1ru/yvonne1ru.github.io.git -b main -f"
   },
   "dependencies": {
+    "autoprefixer": "^10.5.2",
+    "framer-motion": "^12.42.0",
+    "lucide-react": "^1.22.0",
     "next": "16.2.9",
+    "postcss": "^8.5.16",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "zustand": "^5.0.14"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/postcss": "^4.3.2",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.9",
-    "tailwindcss": "^4",
+    "gh-pages": "^6.3.0",
+    "tailwindcss": "^4.3.2",
     "typescript": "^5"
   }
 }

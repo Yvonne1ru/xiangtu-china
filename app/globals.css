@@ -1,26 +1,96 @@
 @import "tailwindcss";
+/* 👇 添加这两行，强制 Tailwind v4 在 build 时扫描组件目录 */
+@source "../components/**/*.{js,ts,jsx,tsx,mdx}";
+@source "../app/**/*.{js,ts,jsx,tsx,mdx}";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* =========================================
+   1. 主题配置 (Tailwind v4 核心)
+   这里定义的颜色会自动变成 bg-xxx, text-xxx 类名
+   ========================================= */
+@theme {
+  /* 纸张色系 */
+  --color-paper: #F5F0E6;
+  --color-paper-dark: #EDE7D9;
+  
+  /* 田野绿 */
+  --color-field: #6B705C;
+  --color-field-light: #8A9A5B;
+  --color-field-dark: #5A5F4D;
+  
+  /* 土褐色 */
+  --color-earth: #A0522D;
+  --color-earth-light: #C47A4A;
+  --color-earth-dark: #8B4513;
+  
+  /* 墨色 */
+  --color-ink: #333333;
+  --color-ink-light: #555555;
+
+  /* 字体变量 (配合 layout.tsx 中的 next/font 使用) */
+  /* 注意：这里引用的是 layout.tsx 中导出的 CSS 变量名 */
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
+  --font-kai: "KaiTi", "STKaiti", serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* =========================================
+   2. 全局基础样式
+   ========================================= */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-serif);
+  
+  /* 添加复古纸张噪点纹理 */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+/* 复古滚动条 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-paper-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-earth);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-earth-dark);
+}
+
+/* =========================================
+   3. 自定义组件类 (复古卡片与边框)
+   ========================================= */
+.retro-border {
+  border: 1px solid rgba(160, 82, 45, 0.3); /* earth/30 */
+  border-radius: 0.125rem; /* rounded-sm */
+  box-shadow: 2px 2px 0px rgba(160, 82, 45, 0.1);
+}
+
+.retro-card {
+  background-color: rgba(237, 231, 217, 0.6); /* paper-dark/60 */
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(160, 82, 45, 0.3);
+  border-radius: 0.125rem;
+  box-shadow: 2px 2px 0px rgba(160, 82, 45, 0.1);
+}
+
+/* 章节链接样式 */
+.chapter-link {
+  @apply px-4 py-3 cursor-pointer transition-all duration-200 
+         border-l-2 border-transparent 
+         hover:bg-field/10 hover:border-field
+         text-sm font-serif;
+}
+
+.chapter-link.active {
+  @apply bg-field/15 border-field text-field-dark font-medium;
+}
+
+/* 右侧笔记卡片 */
+.field-note {
+  @apply bg-paper border-l-4 border-field p-4 font-kai;
 }
