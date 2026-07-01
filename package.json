@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
-    "deploy": "next build && gh-pages -d out -r https://github.com/Yvonne1ru/yvonne1ru.github.io.git -b main -f"
+    "lint": "eslint"
   },
   "dependencies": {
     "autoprefixer": "^10.5.2",
