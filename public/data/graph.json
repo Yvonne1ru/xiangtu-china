@@ -1,0 +1,31 @@
+{
+  "nodes": [
+    { "id": "n0", "name": "乡土社会", "category": 0, "symbolSize": 70, "chapterId": null },
+    { "id": "n1", "name": "乡土本色", "category": 1, "symbolSize": 50, "chapterId": "ch01" },
+    { "id": "n2", "name": "文字下乡", "category": 1, "symbolSize": 40, "chapterId": null },
+    { "id": "n3", "name": "差序格局", "category": 2, "symbolSize": 60, "chapterId": "ch04" },
+    { "id": "n4", "name": "系维着私人的道德", "category": 2, "symbolSize": 45, "chapterId": null },
+    { "id": "n5", "name": "家族", "category": 3, "symbolSize": 50, "chapterId": null },
+    { "id": "n6", "name": "男女有别", "category": 3, "symbolSize": 35, "chapterId": null },
+    { "id": "n7", "name": "礼治秩序", "category": 4, "symbolSize": 55, "chapterId": "ch08" },
+    { "id": "n8", "name": "无讼", "category": 4, "symbolSize": 45, "chapterId": null },
+    { "id": "n9", "name": "无为政治", "category": 5, "symbolSize": 40, "chapterId": null },
+    { "id": "n10", "name": "长老统治", "category": 5, "symbolSize": 45, "chapterId": null },
+    { "id": "n11", "name": "血缘和地缘", "category": 6, "symbolSize": 45, "chapterId": null },
+    { "id": "n12", "name": "名实的分离", "category": 6, "symbolSize": 40, "chapterId": null },
+    { "id": "n13", "name": "从欲望到需要", "category": 7, "symbolSize": 40, "chapterId": null }
+  ],
+  "links": [
+    { "source": "n0", "target": "n1" }, { "source": "n0", "target": "n3" },
+    { "source": "n0", "target": "n7" }, { "source": "n3", "target": "n4" },
+    { "source": "n0", "target": "n5" }, { "source": "n5", "target": "n6" },
+    { "source": "n7", "target": "n8" }, { "source": "n0", "target": "n9" },
+    { "source": "n9", "target": "n10" }, { "source": "n0", "target": "n11" },
+    { "source": "n11", "target": "n12" }, { "source": "n0", "target": "n13" }
+  ],
+  "categories": [
+    { "name": "核心" }, { "name": "基础" }, { "name": "格局" }, 
+    { "name": "社群" }, { "name": "秩序" }, { "name": "权力" }, 
+    { "name": "变迁" }, { "name": "动力" }
+  ]
+}

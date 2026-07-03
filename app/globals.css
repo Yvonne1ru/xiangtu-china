@@ -3,6 +3,13 @@
 @source "../components/**/*.{js,ts,jsx,tsx,mdx}";
 @source "../app/**/*.{js,ts,jsx,tsx,mdx}";
 
+/* 【新增】：强制 html 和 body 高度为 100%，防止高度塌陷 */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 /* =========================================
    1. 主题配置 (Tailwind v4 核心)
    这里定义的颜色会自动变成 bg-xxx, text-xxx 类名
@@ -93,4 +100,16 @@ body {
 /* 右侧笔记卡片 */
 .field-note {
   @apply bg-paper border-l-4 border-field p-4 font-kai;
+}
+
+/* 在 app/globals.css 末尾添加 */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+.animate-shake {
+  animation: shake 0.4s ease-in-out;
 }

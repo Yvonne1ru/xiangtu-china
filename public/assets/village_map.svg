@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="100%" height="100%">
+  <defs>
+    <pattern id="paper" patternUnits="userSpaceOnUse" width="100" height="100">
+      <rect width="100" height="100" fill="#E8E0D0"/>
+      <path d="M0,50 Q25,40 50,50 T100,50" stroke="#D3C7B1" fill="none" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1000" height="600" fill="url(#paper)"/>
+  <!-- 简易地形 -->
+  <path d="M0,400 Q200,350 400,420 T800,380 L1000,450 L1000,600 L0,600 Z" fill="#A0522D" opacity="0.2"/>
+  <path d="M0,450 Q300,400 500,460 T1000,420 L1000,600 L0,600 Z" fill="#6B705C" opacity="0.3"/>
+  <!-- 房屋示意 -->
+  <rect x="200" y="300" width="60" height="40" fill="#8B4513" opacity="0.6"/>
+  <polygon points="200,300 230,270 260,300" fill="#A0522D" opacity="0.8"/>
+  <rect x="550" y="350" width="80" height="50" fill="#8B4513" opacity="0.6"/>
+  <polygon points="550,350 590,310 630,350" fill="#A0522D" opacity="0.8"/>
+  <text x="500" y="100" font-family="serif" font-size="32" fill="#333" text-anchor="middle" opacity="0.5">乡土微缩景观</text>
+</svg>
